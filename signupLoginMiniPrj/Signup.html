@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+
+    </style>
+</head>
+<body>
+    name:<input type="text" id="txtName"><br>
+    Email:<input type="email" id="txtEmail"><br>
+    Password:<input type="password" id="txtPassword"><br>
+    DOB:<input type="date" id="txtDob"><br>
+    <input type="button" value="submit" id="txtBtn" onclick="funAdd()">
+
+    <script>
+        let name1=document.getElementById("txtName");
+        let email=document.getElementById("txtEmail");
+        let password=document.getElementById("txtPassword")
+        let dob=document.getElementById("txtDob");
+
+
+        if(localStorage.list){
+            arr=JSON.parse(localStorage.getItem("list"))
+        }
+        else{
+            arr=[];
+        }
+
+        function funAdd(){
+            let userName=name1.value;
+            let userEmail=email.value;
+            let userPassword=password.value;
+            let userDob=dob.value;
+           // console.log(userName,userEmail,userPassword,userDob);
+           let obj=new User(userName,userEmail,userPassword,userDob);
+        }
+
+
+    </script>
+
+
+    
+</body>
+</html>
