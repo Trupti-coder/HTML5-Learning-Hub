@@ -1,1 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
 
+    </style>
+</head>
+<body>
+    <input type="button" onclick="funCreate()" value=" create cookie">
+    <input type="button" onclick="funDelete()" value=" delete cookie">
+    <input type="button" onclick="funRead()" value=" read cookie">
+    <script>
+       /* window.onload=function(){
+            var count=getCookieVlaue("VCount");
+            if(count==undefined){
+                count=1;
+            }
+            else{
+                count=parseInt(count)+1;
+            }
+            document.cookie="VCount="+count+";expires=wed 28 Aug 0:0:0"
+
+             function getCookieValue(cookieName){
+             var cookieValue="";
+             var str=document.cookie;
+             var arr=str.split(";");
+             for(let i=0;i<arr.length;i++){
+                 var x=arr[i];
+                var xArr=x.split("=");
+                 xArr[0]=xArr[0].trim();
+                 if(xArr[0]==cookieName){
+                    cookieValue=xArr[1];
+                 }
+
+             }
+            console.log(cookieValue);
+             return cookieValue;
+         }
+         }
+         */
+
+
+        function funCreate(){
+            document.cookie="color=blue;expires= wed 28 Aug 2024 0:0:0";
+            alert("cookie created!!");
+        }
+        function funDelete(){
+            document.cookie="color=;expires=mon 26 Aug 2024 0:0:0";
+            alert("cookie deleted")
+        }
+        function funRead(){
+            getCookieValue("fruit");
+        }
+        function getCookieValue(cookieName){
+            var cookieValue="";
+            var str=document.cookie;
+            var arr=str.split(";");
+            for(let i=0;i<arr.length;i++){
+                var x=arr[i];
+                var xArr=x.split("=");
+                xArr[0]=xArr[0].trim();
+                if(xArr[0]==cookieName){
+                    cookieValue=xArr[1];
+                }
+
+            }
+            console.log(cookieValue);
+            return cookieValue;
+        }
+
+    </script>
+    
+</body>
+</html>
