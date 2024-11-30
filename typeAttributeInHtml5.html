@@ -1,1 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        input::placeholder{
+            color: blueviolet;
+        }
+    </style>
+</head>
+<body>
+    <form onsubmit="funSubmit()">
+        password:<input type="password" minlength="3" maxlength="8"><br>
+        Email:<input type="email" placeholder="abc@gmail.com"  tabindex="1" oninvalid="setCustomValidity('myMessage !!')"><br>
+        Color:<input type="color"><br>
+        Date:<input type="date"><br>
+        Time:<input type="datetime-local" autofocus><br>
+        Month:<input type="month"><br>
+        Url:<input type="url"><br>
+        Number:<input type="number" step="2" min="19" max="100"><br>
+        Tel:<input type="tel"><br>
+        
 
+        <hr>
+        ColorName:<input type="text" list="colorName">
+        <datalist id="colorName">
+            <option>Red</option>
+            <option>Blue</option>
+            <option>Pink</option>
+            <option>Black</option>
+
+        </datalist>
+        
+        <hr>
+
+        Range:<input type="range" min="10" max="50" step="2" value="20" id="r1"  oninput="out1.value=r1.value">
+        <output id="out1"></output><br>
+        
+        <hr>
+        <progress value="40" min="10" max="100"> </progress>
+        <input type="Submit" value="submit" formaction="abc.php" formmethod="get"><br>
+        <button formaction="pqr.js" formmethod="post" formnovalidate>Submit2</button> 
+        <progress></progress>
+    
+        </form>
+        <!--case 2-->
+        Range:<input type="number" min="10" max="100" id="num1"><br>
+        <input type="button" value="Check" onclick="funCheck()">
+       
+        <script>
+            function funSubmit(){
+                console.log("form submited");
+            }
+            var num1=document.getElementById("num1");
+
+            function funCheck(){
+                //case 1
+               /* if(num1.checkValidity()){
+                    alert("valid");
+                }
+                else{
+                    alert("invalid");
+                }*/
+
+                //case 2
+
+                if(num1.validity.rangeUnderFlow){
+                    alert("value below 10");
+                }
+                else if(num1.validity.rangeOverFlow){
+                    alert("value above 100");
+                }
+                else{
+                    alert("valid input");
+                }
+            }
+        </script>
+   
+</body>
+</html>
