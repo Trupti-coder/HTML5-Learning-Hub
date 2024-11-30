@@ -1,1 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #form1{
+            width: 300px;
+            height: 400px;
+            border: 2px solid black;
+            text-align: center;
+            padding-top: 20px;
+        }
+            
+    </style>
+</head>
+<body>
+    <h3>Creating a form with HTML5</h3>
+    <form id="form1">
+    Name:<input type="text"><br><br>
+    DOB:<input type="date"><br><br>
+    City:<input type="text"><br><br>
+    Password:<input type="password" minlength="3" maxlength="8"><br><br>
+    Email:<input type="email"><br><br>
+    Marks:<input type="number" min="10" max="100"><br><br>
+    Percentage:<input type="range" min="10%" max="100%" value="65"  step="2" id="p1" oninput="out1.value=p1.value">
+    <output id="out1">65</output><br><br>
+    
+    <progress min="10" max="100" value="45"></progress><br><br>
+    <button>Click1</button>
+    <button>Click2</button>
+    <input type="submit" value="Submit">
+    </form>
 
+    
+</body>
+</html>
