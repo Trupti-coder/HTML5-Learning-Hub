@@ -1,1 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
 
+</head>
+<body>
+    <script>
+        window.onload=function(){
+            var count=getCookieValue("VCount");
+            if(count==undefined){
+                count=1;
+            }
+            else{
+                count=parseInt(count)+1;
+            }
+            document.cookie="VCount="+count+";expires=wed 28 Aug 0:0:0"
+
+             function getCookieValue(cookieName){
+             var cookieValue="";
+             var str=document.cookie;
+             var arr=str.split(";");
+             for(let i=0;i<arr.length;i++){
+                 var x=arr[i];
+                var xArr=x.split("=");
+                 xArr[0]=xArr[0].trim();
+                 if(xArr[0]==cookieName){
+                    cookieValue=xArr[1];
+                 }
+
+             }
+            console.log(cookieValue);
+             return cookieValue;
+         }
+         }
+    </script>
+    
+</body>
+</html>
