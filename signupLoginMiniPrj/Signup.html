@@ -30,6 +30,15 @@
             arr=[];
         }
 
+
+        function User(name,email,password,dob){
+
+           this.userName=name;
+           this.userEmail=email;
+           this.userPassword=password;
+           this.userDob=dob;
+        }
+
         function funAdd(){
             let userName=name1.value;
             let userEmail=email.value;
@@ -37,6 +46,9 @@
             let userDob=dob.value;
            // console.log(userName,userEmail,userPassword,userDob);
            let obj=new User(userName,userEmail,userPassword,userDob);
+            arr.push(obj);
+            localStorage.setItem("list",JSON.stringify(arr)); 
+            alert("register successfuly"); 
         }
 
 
