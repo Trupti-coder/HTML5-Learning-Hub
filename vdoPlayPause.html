@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Range Input Example</title>
+    <style>
+        video{
+            width: 500px;
+            height: 500px;
+            border: 2px solid black;
+            margin: 20px;
+        }
+    </style>
+</head>
+<body>
+    
+    <video controls onended="fun()">
+     <source src="video.mp4" >
+ </video>
+
+    <div>
+    <input type="button" value="play" id="btn" onclick="funPlay()"> 
+    <input type="button" value="Forward" onclick="funForward()">
+    <input type="button" value="Backward" onclick="funRewind()">
+
+    </div>
+    <script>
+        var vd=document.querySelector("video");
+        var btn1=document.getElementById("btn");
+        function funPlay(){
+           
+            if(vd.paused){
+                vd.play()
+                btn1.value="pause"
+            }
+            else if(!vd.paused){
+                vd.pause();
+                btn1.value="play";
+            }
+        }
+        function funForward(){
+            vd.currentTime=vd.currentTime+2;
+        }
+        function funRewind(){
+            vd.currentTime=vd.currentTime-2;
+        }
+        function fun(){
+            btn1.value="play";
+        }
+    </script>
+   
+</body>
+</html>
