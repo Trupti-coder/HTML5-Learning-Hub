@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        video{
+            width: 500px;
+            height: 500px;
+            border: 2px solid black;
+        }
+    </style>
+</head>
+<body>
+    <video controls muted  onmouseover="funMouseover()" onmouseout="funMouseout()" >
+    <source src="video.mp4" >
+    </video>
+    <script>
+        var vd=document.querySelector("video");
+        function funMouseover(){
+            vd.play();
+
+        }
+        function funMouseout(){
+            vd.pause();
+
+        }
+
+        
+        
+    </script>
+    
+</body>
+</html>
