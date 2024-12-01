@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Number:<input type="text" id="txtNum"><br><br>
+    <input type="button" value="Add" id="btn1" onclick="funAdd(event)">
+    <div id="display"></div>
+
+    <script>
+        let Numbers=[];
+        let size=5;
+        
+        function funAdd(event){
+            var input=document.getElementById("txtNum").value;
+            const number=parseInt(input);
+
+            if(Numbers>=0 && Numbers.length<size){
+                Numbers.push(number);
+                if(Numbers.length===size){
+                    var worker= new Worker('assignment.js');
+                    worker.postMessage(Numbers);
+                    worker.onmessage=function(event){
+                        document.getElementById('display').innerText=event.data.join(',');
+                        console.log(Numbers);
+                        document.write=event.data;
+                    };
+                    
+
+                }
+                else{
+                    document.getElementById('display').innerText=Numbers.join(',');
+                }
+            }
+            else{
+                alert("enterr positive number and ensure  the size is five.");
+            }
+
+        
+        }
+
+    </script>
+    
+</body>
+</html>
