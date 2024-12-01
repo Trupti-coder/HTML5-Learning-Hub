@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        canvas{
+            border: 2px solid black;
+            height: 400px;
+            width: 400px;
+        }
+
+    </style>
+</head>
+<body>
+    <canvas></canvas>
+    <script>
+        var canvas=document.querySelector("canvas");
+        var ctx=canvas.getContext("2d");
+
+        //rectangle
+
+        ctx.fillStyle="yellow";
+        ctx.strokeStyle="green";
+        ctx.lineWidth="3px";
+        ctx.lineJoin="bevel";
+        ctx.fillRect(100,10,100,20);
+        ctx.strokeRect(100,10,100,20);
+
+        //line
+        ctx.strokeStyle="red";
+        ctx.fillStyle="pink";
+        ctx.moveTo(170,70);
+        ctx.lineTo(10,70);
+        ctx.closePath();
+        ctx.fill();
+        ctx.stroke();
+
+
+        //circle
+        ctx.fillStyle="pink";
+        ctx.arc(150,90,);
+        ctx.arc(210,90,20,0,7);
+        ctx.stroke();
+        ctx.fill();
+
+        //text
+        ctx.fillStyle="blue";
+        ctx.font=" 40px Arial"
+        ctx.fillText=("Hello",100,40);
+        ctx.strokeText("Hello",100.40);
+        ctx.stroke();
+
+
+
+
+    </script>
+    
+</body>
+</html>
