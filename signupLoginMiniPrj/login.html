@@ -1,0 +1,41 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+</head>
+<body>
+    <h3>Login Page</h3>
+    Email: <input type="email" id="txtEmail1"><br><br>
+    Password: <input type="password" id="txtPassword1"><br><br>
+    <input type="submit" value="Submit" onclick="funLogin()">
+    <div id="d1"></div>
+
+    <script>
+        function funLogin() {
+            var loginemail = document.getElementById("txtEmail1").value;
+            var loginpassword = document.getElementById("txtPassword1").value;
+
+            var storedUsers = JSON.parse(localStorage.getItem("list"));
+            var isValidUser = false;
+
+            if (storedUsers) {
+                for (var i = 0; i < storedUsers.length; i++) {
+                    if (storedUsers[i].userEmail === loginemail && storedUsers[i].userPassword === loginpassword) {
+                        isValidUser = true;
+                        break;
+                    }
+                }
+            }
+
+            if (isValidUser) {
+                alert("Login successful");
+            } else {
+                alert("Login unsuccessful");
+            }
+        }
+    </script>
+</body>
+</html>
