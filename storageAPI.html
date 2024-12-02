@@ -1,1 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
 
+</head>
+<body>
+    <input type="button" value="LocalStorage" onclick="funLocal()">
+    <input type="button" value="SessionStorage" onclick="funSession()">
+    <div></div>
+    <script>
+
+        // case1-Local storage
+
+        var count=0;
+        var d1=document.querySelector("div");
+        function funLocal(){
+            if(window.localStorage.clickKey){
+                count=window.localStorage.clickKey;
+                count=parseInt(count)+1;
+                window.localStorage.clickKey=count;
+
+            }
+            else{
+                localStorage.clickKey=1;
+            }
+            d1.innerHTML=localStorage.clickKey;
+        }
+        
+        //case2-session storage
+
+        function funSession(){
+            if(window.sessionStorage.clickKey){
+                count=window.sessionStorage.clickKey;
+                count=parseInt(count)+1;
+                window.sessionStorage.clickKey=count;
+
+            }
+            else{
+                sessionStorage.clickKey=1;
+            }
+            d1.innerHTML=sessionStorage.clickKey;
+        }
+
+    </script>
+    
+</body>
+</html>
