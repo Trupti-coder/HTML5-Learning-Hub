@@ -23,6 +23,13 @@
    <div id="div2"> </div>
 
    <script>
+     function funStart(event){
+            event.dataTransfer.setData("text/plain",event.currentTarget.id)
+        }
+        function funDrag(event){
+            event.preventDefault();
+
+        }
      
    </script>
   </body>
