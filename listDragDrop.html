@@ -30,6 +30,20 @@
             event.preventDefault();
 
         }
+     function funDrop(event){
+            var x=event.dataTransfer.getData("text/plain");
+            console.log(x);
+            var obj=document.getElementById(x);
+            event.currentTarget.appendChild(obj);
+        }
+
+        function funTransfer(event){
+            div2.innerHTML+="<li>"+div1.firstChild.textContent+"</li>";
+            div1.removeChild(div1.firstChild);
+
+            
+
+        }
      
    </script>
   </body>
