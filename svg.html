@@ -1,1 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        svg{
+            width: 400px;
+            height: 400px;
+            border: 1px solid black;
+        }
 
+        </style>
+</head>
+<body>
+    <svg>
+        <defs>
+            <g id="mypattern">
+        <rect x="100" y="40" width="100" height="40" style="fill:rgb(162, 72, 87);stroke:rgb(16, 26, 23);stroke-width:3px"></rect>
+        <circle cx="100" cy="130" r="40" style="fill:aquamarine;stroke:black;stroke-width:3px"></circle>
+        </g>
+        </defs>
+        <text x="180" y="100" style="fill:red;stroke:aqua;stroke-width:4px" font-size="40">Hello</text>
+
+    <use xlink:href="#myPattern"></use>
+    <use xlink:href="#mypattern" transform="translate(100,190)"></use>
+</svg>
+    
+    
+    
+</body>
+</html>
