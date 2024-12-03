@@ -1,1 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        svg{
+            width: 400px;
+            height: 400px;
+            border: 2px solid black;
+        }
+    </style>
+</head>
+<body>
+    <svg>
+        <defs>
+            <rect x="-5" y="-50" width="10" height="30"></rect>
+            <path id="canopy" d="M -25,-50
+                                 L -10,-80
+                                 L -20,-80
+                                 L -5,-110 
+                                 L -15,-110
+                                 L 0,-150
+                                 L 15,-110
+                                 L 5,-110
+                                 L 20,-80
+                                 L 10,-80
+                                 L 25,-50
+                                 Z"></path>
+         <g id="tree">
+            <use xlink:href="#stem" style="fill:brown"></use>
+            <use xlink:href="#canopy" style="fill:green;stroke:lightgreen;
+            stroke-width:2px;stroke-linejoin: round;"></use>
 
+         </g> 
+         <g id="shadow">
+            <use xlink:href="#stem" style="fill:rgba(0,0,0,0.6)"></use>
+            <use xlink:href="#canopy" style="fill:rgba(0,0,0,0.6);"></use>
+
+         </g>
+
+        </defs>
+        <text x="190" y="90" style="fill:blue" font-size="30">Tree</text>
+        <use xlink:href="#tree" transform="translate(100,160)"></use>
+        <use xlink:href="#shadow" transform="translate(100,150) rotate(45) scale(1,0.5)"></use>
+
+       <!-- <use xlink:href="#tree" transform="translate(190,160) scale(1,0.5),rotate(5)"></use>-->
+       
+    </svg>
+    <input type="button" value="Add Tree" onclick="funAdd()">
+    <script>
+        function funAdd(){
+            var x=Math.round(Math.random()*400);
+            var y=Math.round(Math.random()*400);
+            var s=Math.round(Math.random()*1);
+            var str="translate("+x+","+y+")scale("+s+")";
+            var use=document.createElementNS("http://www.w3.org/2000/svg","usequot");
+            use.setAttributeNS("http://www.w3.org/1999/xlink","xlink:href","#treequot");
+            use.setAttribute("transform",str);
+            document.querySelector("svg").appendChild(use);
+            countTree();
+
+
+        }
+        function countTree(){
+            var count=0;
+            var arr=document.querySelectorAll("usre");
+            for(let i=0;i<arr.length;i++){
+                if(arr[i].getAttribute("xlink:href")=="#tree"){
+                    count++;
+                    arr[i].addEventListener("click",funClick);
+                }
+            }
+            document.querySelector("text").innerHTML=count+"Trees!!";
+
+
+            
+        }
+        function funClick(event){
+            var x=event.currentTarget;
+            x.parrentNode.removeChild(x);
+            countTree();
+        }
+    </script>
+    
+    
+</body>
+</html>
